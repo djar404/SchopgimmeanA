@@ -248,10 +248,41 @@ color: var(–cyan);
 margin-bottom: 12px;
 }
 
-.popup-box p {
-color: var(–muted);
-margin-bottom: 28px;
+.popup-box p { color: var(–muted); margin-bottom: 12px; font-size: 1rem; }
+
+.popup-sub {
+font-size: 0.88rem !important;
+color: #556677 !important;
+margin-bottom: 20px !important;
+}
+
+.btn-gradebook {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+width: 100%;
+padding: 16px 24px;
+background: linear-gradient(135deg, var(–blue), var(–cyan));
+color: #fff;
+font-family: ‘Syne’, sans-serif;
 font-size: 1rem;
+font-weight: 700;
+border-radius: 6px;
+text-decoration: none;
+margin-bottom: 14px;
+transition: transform 0.2s, box-shadow 0.2s;
+animation: gradebookPulse 1.8s ease-in-out infinite;
+}
+
+.btn-gradebook:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(26,111,255,0.5);
+}
+
+@keyframes gradebookPulse {
+0%, 100% { box-shadow: 0 0 0 0 rgba(26,111,255,0.4); }
+50%       { box-shadow: 0 0 0 10px rgba(26,111,255,0); }
 }
 
 .popup-close {
@@ -770,7 +801,7 @@ to   { transform: translateY(100vh) rotate(720deg); opacity: 0; }
       <p>Learning to use AI responsibly is one of the most important skills for the future. It's not about replacing thinking — it's about working <strong>smarter, faster, and more creatively</strong>. That's exactly what this project tried to do.</p>
     </div>
     <div class="ai-terminal reveal">
-      <div class="ai-line"><span class="prompt">›</span><span class="cmd">analyze_student --name "DYLAN JARJOSA" --course current</span></div>
+      <div class="ai-line"><span class="prompt">›</span><span class="cmd">analyze_student --name "Your Student" --course current</span></div>
       <div class="ai-line"><span class="prompt">›</span><span class="output">Effort score: 94.7%  ████████████████░░</span></div>
       <div class="ai-line"><span class="prompt">›</span><span class="output">Creativity index: HIGH  🎨</span></div>
       <div class="ai-line"><span class="prompt">›</span><span class="output">AI fluency: Demonstrated  🤖</span></div>
@@ -898,7 +929,12 @@ to   { transform: translateY(100vh) rotate(720deg); opacity: 0; }
     <span class="popup-robot">🤖</span>
     <h2>Excellent choice, Mr. Schop.</h2>
     <p>History will remember this decision.</p>
-    <button class="popup-close" onclick="closePopup()">Close — and go give that A →</button>
+    <p class="popup-sub">Ready to make it official? The gradebook is one click away.</p>
+    <a class="btn-gradebook" href="https://orchardlakeschools.myschoolapp.com/app/student?svcid=edu#login" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      Enter the Gradebook → Change the Grade
+    </a>
+    <button class="popup-close" onclick="closePopup()">Maybe later…</button>
   </div>
 </div>
 
